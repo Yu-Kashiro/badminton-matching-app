@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  resource :profile, only: [:show, :edit, :update]
+
 end
