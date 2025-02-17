@@ -69,3 +69,4 @@ end
 
 gem "devise", "~> 4.9"
 gem 'pry-byebug'
+gem "sassc-rails", "~> 2.1"
