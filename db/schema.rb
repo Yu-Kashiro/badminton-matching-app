@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_16_074238) do
     t.date "birthday"
     t.integer "years_of_experience"
     t.integer "level"
-    t.string "area"
+    t.integer "area"
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
