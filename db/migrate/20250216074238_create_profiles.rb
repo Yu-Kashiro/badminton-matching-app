@@ -7,7 +7,7 @@ class CreateProfiles < ActiveRecord::Migration[7.1]
       t.date :birthday
       t.integer :years_of_experience
       t.integer :level
-      t.string :area
+      t.integer :area
       t.text :introduction
 
       t.timestamps
