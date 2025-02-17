@@ -10,9 +10,38 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+<body>
+  <header class="header">
+    <% if flash.present? %>
+      <div class="flash">
+        <% flash.each do |key, value| %>
+          <div class="<%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="header_logos">
+      <% if !current_page?(root_path) && user_signed_in? %>
+        <%= link_to :back do %>
+          <%= image_tag 'back.svg', class: 'header_back' %>
+        <% end %>
+      <% end %>
+      <p class="header_pageTitle">
+        <%= link_to 'Badminton Matching', root_path %>
+      </p>
+    </div>
+    <% if user_signed_in? %>
+      <div class="dropdown">
+        <%= image_tag 'default-avatar.png', class: 'header_avatar dropbtn' %>
+        <div class="dropdown-content">
+          <%= link_to 'Profile', profile_path %>
+          <%= link_to 'Edit Profile', edit_profile_path %>
+          <%= link_to 'Logout', destroy_user_session_path %>
+        </div>
+      </div>
+    <% end %>
+  </header>
+  <%= yield %>
+</body>
 </html>
